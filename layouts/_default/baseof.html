@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+  <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+</head>
+<body>
+  {{ $primeContent := .Content }}
+  <div class="layout">
+    <aside class="sidebar">
+    <div class="sidebar-inner">
+      <a class="site-logo" href="{{ .Site.Home.RelPermalink }}">
+        <img src="/images/logo/Logo.svg" alt="{{ .Site.Title }}">
+      </a>
+
+      <nav class="sidebar-nav">
+        {{ $home := .Site.Home }}
+        {{ $isHomeActive := eq $home $ }}
+        <div class="nav-group{{ if $isHomeActive }} active{{ end }}">
+          <a href="{{ $home.RelPermalink }}"{{ if $isHomeActive }} aria-current="page"{{ end }}>
+            <span>{{ $home.Title }}</span>
+            <span class="chevron"></span>
+          </a>
+          {{ if $isHomeActive }}
+            {{ $extra := $home.Scratch.Get "extraHeadings" }}
+            {{ if or $home.TableOfContents $extra }}
+              <div class="sub-nav">
+                {{ $home.TableOfContents }}
+                {{ with $extra }}
+                  <nav><ul>{{ range . }}<li><a href="{{ printf "#%s" .anchor | safeURL }}">{{ .title }}</a></li>{{ end }}</ul></nav>
+                {{ end }}
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ range .Site.Home.RegularPagesRecursive.ByWeight }}
+          {{ $isActive := eq . $ }}
+          <div class="nav-group{{ if $isActive }} active{{ end }}">
+            <a href="{{ .RelPermalink }}"{{ if $isActive }} aria-current="page"{{ end }}>
+              <span>{{ .Title }}</span>
+              <span class="chevron"></span>
+            </a>
+            {{ if $isActive }}
+              {{ $extra := .Scratch.Get "extraHeadings" }}
+              {{ if or .TableOfContents $extra }}
+                <div class="sub-nav">
+                  {{ .TableOfContents }}
+                  {{ with $extra }}
+                    <nav><ul>{{ range . }}<li><a href="{{ printf "#%s" .anchor | safeURL }}">{{ .title }}</a></li>{{ end }}</ul></nav>
+                  {{ end }}
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
+      </nav>
+
+      {{ if .IsTranslated }}
+      <nav class="lang-switch">
+        {{ range .AllTranslations }}
+          <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      </nav>
+      {{ end }}
+
+      <a class="download-assets-button" href="https://drive.google.com/drive/folders/1GQSedginfGZh0NPh0sPKxNKHgj99m2qF?usp=drive_link&amp;download=1" target="_blank" rel="noopener">Download Assets</a>
+    </div>
+    </aside>
+
+    <div class="content-col">
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <footer>
+        <p class="footer-intro">
+          {{ if eq .Site.Language.Lang "de" }}
+            Bei Fragen zur Marke stehen folgende internen und externen Kontakte zur Verfügung:
+          {{ else }}
+            For questions about the brand, the following internal and external contacts are available:
+          {{ end }}
+        </p>
+        <div class="footer-contacts">
+          <div class="footer-contact">
+            <p class="footer-contact-label">{{ if eq .Site.Language.Lang "de" }}Markenführung{{ else }}Brand Management{{ end }}</p>
+            <p>
+              Thomas Philipona<br>
+              <a href="mailto:brand@tim-koko.ch">brand@tim-koko.ch</a>
+            </p>
+          </div>
+          <div class="footer-contact">
+            <p class="footer-contact-label">{{ if eq .Site.Language.Lang "de" }}Branding Agentur{{ else }}Branding Agency{{ end }}</p>
+            <p>
+              Studio Wanner AG<br>
+              <a href="mailto:hi@studiowanner.ch">hi@studiowanner.ch</a><br>
+              <a href="tel:+41445520296">+41 44 552 02 96</a>
+            </p>
+          </div>
+        </div>
+        <p>&copy; {{ now.Year }} Tim&amp;Koko AG</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="{{ "js/scrollspy.js" | absURL }}"></script>
+</body>
+</html>

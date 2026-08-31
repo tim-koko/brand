@@ -1,0 +1,8 @@
+{{ $src := .Get "src" }}
+{{ $caption := .Get "caption" }}
+{{ $size := .Get "size" }}
+{{ $width := .Get "width" }}
+<figure{{ with $size }} class="img-row-item--{{ . }}"{{ end }}{{ with $width }} style="{{ printf "flex-basis: %s; max-width: %s;" . . | safeCSS }}"{{ end }}>
+  <img src="{{ $src }}" alt="{{ $caption }}">
+  {{ with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

@@ -1,0 +1,18 @@
+{{ $name := .Get "name" }}
+{{ $hex := .Get "hex" }}
+{{ $cmyk := .Get "cmyk" }}
+{{ $rgb := .Get "rgb" }}
+{{ $pms := .Get "pms" | default "–" }}
+{{ $ncs := .Get "ncs" }}
+{{ $text := .Get "text" | default "dark" }}
+{{ $border := .Get "border" }}
+<div class="color-card color-card--{{ $text }}{{ if $border }} color-card--bordered{{ end }}" style="background-color: {{ $hex }};">
+  <div class="color-card-name">{{ $name }}</div>
+  <div class="color-card-specs">
+    {{ with $cmyk }}<div>CMYK: {{ . }}</div>{{ end }}
+    {{ with $rgb }}<div>RGB: {{ . }}</div>{{ end }}
+    <div>HEX: {{ $hex }}</div>
+    <div>PMS: {{ $pms }}</div>
+    {{ with $ncs }}<div>NCS: {{ . }}</div>{{ end }}
+  </div>
+</div>

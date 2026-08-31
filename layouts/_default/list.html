@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ if and .Params.heroImage (not .Params.heroImageBelowTitle) }}
+<img class="page-hero-image" src="{{ .Params.heroImage }}" alt="{{ .Params.heroImageAlt | default .Title }}" loading="lazy">
+{{ end }}
+{{ if not .Params.hideTitle }}
+<div class="page-hero">
+  <p class="kicker">Brand Guidelines</p>
+  <h1>{{ .Title }}</h1>
+</div>
+{{ end }}
+{{ if and .Params.heroImage .Params.heroImageBelowTitle }}
+<img class="page-hero-image" src="{{ .Params.heroImage }}" alt="{{ .Params.heroImageAlt | default .Title }}" loading="lazy">
+{{ end }}
+<div class="page-body">
+  {{ if and .Params.downloadUrl (not .Params.hideDownloadButton) }}
+  {{ partial "download-button.html" (dict "url" .Params.downloadUrl "caption" .Params.downloadLabel "extraClass" "download-button--hero") }}
+  {{ end }}
+  {{ .Content }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

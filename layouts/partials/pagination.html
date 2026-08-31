@@ -1,0 +1,27 @@
+{{ $current := . }}
+{{ $pages := slice .Site.Home }}
+{{ $pages = $pages | append .Site.Home.RegularPagesRecursive.ByWeight }}
+{{ $index := -1 }}
+{{ range $i, $p := $pages }}
+  {{ if eq $p $current }}{{ $index = $i }}{{ end }}
+{{ end }}
+{{ $prev := "" }}
+{{ $next := "" }}
+{{ if gt $index 0 }}{{ $prev = index $pages (sub $index 1) }}{{ end }}
+{{ if lt $index (sub (len $pages) 1) }}{{ $next = index $pages (add $index 1) }}{{ end }}
+{{ if or $prev $next }}
+<div class="page-pagination">
+  <div class="page-pagination-prev">
+    {{ with $prev }}
+      <p class="kicker">{{ if eq $current.Site.Language.Lang "de" }}vorheriges Kapitel{{ else }}previous chapter{{ end }}</p>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+  </div>
+  <div class="page-pagination-next">
+    {{ with $next }}
+      <p class="kicker">{{ if eq $current.Site.Language.Lang "de" }}nächstes Kapitel{{ else }}next chapter{{ end }}</p>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

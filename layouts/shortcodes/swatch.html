@@ -1,0 +1,11 @@
+{{ $hex := .Get "hex" }}
+{{ $cmyk := .Get "cmyk" }}
+{{ $rgb := .Get "rgb" }}
+{{ $label := .Get "label" }}
+<span class="swatch">
+  <span class="swatch-color" style="background-color: {{ $hex }};"></span>
+  {{ with $cmyk }}<span class="swatch-spec">CMYK: {{ . }}</span>{{ end }}
+  {{ with $rgb }}<span class="swatch-spec">RGB: {{ . }}</span>{{ end }}
+  <span class="swatch-hex">HEX: {{ $hex }}</span>
+  {{ with $label }}<span class="swatch-label">{{ . }}</span>{{ end }}
+</span>

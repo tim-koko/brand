@@ -1,0 +1,9 @@
+{{ $bg := .Get "bg" | default "default" }}
+{{ $page := .Page }}
+{{ range findRE "(?m)^## (.+)$" .Inner }}
+  {{ $title := strings.TrimPrefix "## " . }}
+  {{ $page.Scratch.Add "extraHeadings" (slice (dict "title" $title "anchor" (anchorize $title))) }}
+{{ end }}
+<div class="content-section content-section--{{ $bg }}">
+{{ .Inner | markdownify }}
+</div>

@@ -1,0 +1,18 @@
+{{ $entries := split (.Get "data") "," }}
+<span class="proportion-bar">
+  {{ range $entries }}
+    {{ $parts := split . ":" }}
+    {{ $name := index $parts 0 }}
+    {{ $hex := index $parts 1 }}
+    {{ $pct := index $parts 2 }}
+    <span class="proportion-segment" style="width: {{ $pct }}%; background-color: {{ $hex }};" title="{{ $name }} {{ $pct }}%"></span>
+  {{ end }}
+</span>
+<span class="proportion-legend">
+  {{ range $entries }}
+    {{ $parts := split . ":" }}
+    {{ $name := index $parts 0 }}
+    {{ $pct := index $parts 2 }}
+    <span class="proportion-legend-item">{{ $name }} {{ $pct }}%</span>
+  {{ end }}
+</span>

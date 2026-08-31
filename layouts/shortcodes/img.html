@@ -1,0 +1,16 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default (.Get "caption") }}
+{{ $size := .Get "size" | default "large" }}
+{{ $align := .Get "align" | default "left" }}
+
+{{ $style := slice }}
+{{ with .Get "top" }}{{ $style = $style | append (printf "margin-top: %s" .) }}{{ end }}
+{{ with .Get "bottom" }}{{ $style = $style | append (printf "margin-bottom: %s" .) }}{{ end }}
+{{ with .Get "left" }}{{ $style = $style | append (printf "margin-left: %s" .) }}{{ end }}
+{{ with .Get "right" }}{{ $style = $style | append (printf "margin-right: %s" .) }}{{ end }}
+{{ $styleAttr := delimit $style "; " }}
+
+<img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" class="content-img content-img--{{ $size }} content-img--{{ $align }}"{{ with $styleAttr }} style="{{ . | safeCSS }}"{{ end }}>
+{{ with .Get "caption" }}
+<p class="content-img-caption content-img--{{ $size }} content-img--{{ $align }}">{{ . }}</p>
+{{ end }}

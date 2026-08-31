@@ -1,0 +1,12 @@
+{{ $label := .Get "label" }}
+{{ $font := .Get "font" }}
+{{ $weight := .Get "weight" | default "400" }}
+<div class="font-specimen" style="font-family: '{{ $font }}', sans-serif; font-weight: {{ $weight }};">
+  <div class="font-specimen-aa">Aa</div>
+  <div class="font-specimen-text">
+    <p class="font-specimen-label">{{ $label }}</p>
+    <p>abcdefghijklmnopqrstuvwxyz</p>
+    <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+    <p>0123456789£$&amp;*()%+</p>
+  </div>
+</div>

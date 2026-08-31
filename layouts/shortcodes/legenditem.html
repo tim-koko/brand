@@ -1,0 +1,8 @@
+{{ $title := .Get "title" }}
+{{ $items := split (.Get "items") "," }}
+<div class="color-legend-item">
+  <strong>{{ $title }}</strong>
+  <ul>
+    {{ range $items }}<li>{{ . }}</li>{{ end }}
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+{{ $effect := .Get "effect" }}
+{{ $label := .Get "label" }}
+<span class="dont-demo">
+  <span class="dont-demo-frame dont-{{ $effect }}">
+    <img src="/images/logo/Logo.svg" alt="">
+  </span>
+  {{ with $label }}<span class="dont-demo-label">{{ . }}</span>{{ end }}
+</span>

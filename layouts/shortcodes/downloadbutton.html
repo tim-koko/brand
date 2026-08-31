@@ -1,0 +1,5 @@
+{{ $url := .Get "url" | default .Page.Params.downloadUrl }}
+{{ $caption := .Get "caption" | default (.Page.Params.downloadLabel | default "Download") }}
+{{ $extraClass := "" }}
+{{ if eq (.Get "align") "right" }}{{ $extraClass = "download-button--right" }}{{ end }}
+{{ partial "download-button.html" (dict "url" $url "caption" $caption "extraClass" $extraClass) }}
