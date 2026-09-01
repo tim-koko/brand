@@ -1,0 +1,9 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: connect-src * 'self';
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin
+  Access-Control-Allow-Origin: {{ .Site.BaseURL }}
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()

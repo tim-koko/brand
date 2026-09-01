@@ -1,6 +1,23 @@
 [build]
   publish = "public"
-  command = "hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.155.3"
+  NODE_VERSION = "24.16.0"
+  NPM_VERSION = "11.6.2"
+
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build -- -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "npm run build -- -b $DEPLOY_PRIME_URL"
+
+[dev]
+  framework = "#custom"
+  command = "npm run start"
+  targetPort = 1313
+  port = 8888
+  publish = "public"
+  autoLaunch = false

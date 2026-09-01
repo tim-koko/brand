@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="page-hero">
+  <p class="kicker">{{ if eq .Site.Language.Lang "de" }}Fehler 404{{ else }}Error 404{{ end }}</p>
+  <h1>{{ if eq .Site.Language.Lang "de" }}Seite nicht gefunden{{ else }}Page not found{{ end }}</h1>
+</div>
+<div class="page-body">
+  <p>
+    {{ if eq .Site.Language.Lang "de" }}
+      Diese Seite existiert nicht oder wurde verschoben.
+    {{ else }}
+      This page doesn't exist or has moved.
+    {{ end }}
+  </p>
+  <a class="download-button" href="{{ .Site.Home.RelPermalink }}">{{ if eq .Site.Language.Lang "de" }}Zur Startseite{{ else }}Back to home{{ end }}</a>
+</div>
+{{ end }}

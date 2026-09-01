@@ -14,7 +14,7 @@ hideTitle: true
 Mit technologischen Lösungen, die begeistern. Und einer involvierenden Zusammenarbeit, die bewegt. Damit Technologie und Mensch nicht gegeneinander arbeiten, sondern gemeinsam Besseres entsteht.
 {{< /lead >}}
 
-![](/images/unsere-marke/tk_4.jpg)
+![Tim&Koko Team](/images/unsere-marke/tk_4.jpg)
 
 ## Brandstory
 
@@ -52,7 +52,7 @@ Ganz gleich, wo sich Unternehmen auf dem Weg in die Cloud befinden und welche He
 
 ## Unsere Haltung
 
-![](/images/unsere-marke/tk_7.jpg)
+![Tim&Koko Team](/images/unsere-marke/tk_7.jpg)
 
 ### Offenheit gewinnt
 

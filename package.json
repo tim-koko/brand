@@ -1,0 +1,28 @@
+{
+  "name": "tim-koko-brand",
+  "description": "Tim&Koko Brand Guide",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "https://github.com/tim-koko/brand",
+  "license": "MIT",
+  "scripts": {
+    "prestart": "npm run clean",
+    "start": "hugo server --logLevel info --bind=0.0.0.0 --disableFastRender --baseURL=http://localhost",
+    "prebuild": "npm run clean",
+    "build": "hugo --gc --minify",
+    "build:preview": "npm run build -D -F",
+    "clean": "shx rm -rf public resources",
+    "clean:install": "shx rm -rf package-lock.json node_modules",
+    "lint": "npm run -s lint:markdown",
+    "lint:markdown": "markdownlint-cli2 \"content/**/*.md\"",
+    "lint:markdown-fix": "markdownlint-cli2-fix \"content/**/*.md\"",
+    "test": "npm run -s lint",
+    "server": "hugo server",
+    "check": "hugo version"
+  },
+  "devDependencies": {
+    "hugo-extended": "0.155.3",
+    "markdownlint-cli2": "^0.22.1",
+    "shx": "^0.4"
+  }
+}

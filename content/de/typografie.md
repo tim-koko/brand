@@ -26,6 +26,7 @@ Als Ausnahmefall bei Anwendungen von Google wird als Alternativschrift Poppins v
 {{< fontspecimen label="Poppins Bold" font="Poppins" weight="700" >}}
 
 {{< section bg="dark" >}}
+
 ## Anwendungsbeispiele
 
 Die «Athletics» ist die Hausschrift von tim&koko und ist bei allen Anwendungen einzusetzen. Sie ist eine serifenlose Schrift mit gleichbleibender Strichstärke. Längere Striche, asymmetrische Bögen und enge Öffnungen verleihen ihr ein markantes und funktionales Design.

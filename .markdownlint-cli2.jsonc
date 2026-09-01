@@ -1,0 +1,15 @@
+{
+  "config": {
+    "default": true,
+    "MD001": false,
+    "MD013": false,
+    "MD024": false,
+    "MD026": false,
+    "MD033": false,
+    "MD034": false,
+    // bold taglines (e.g. "**Wir leben Cloud Native**") are an intentional
+    // non-heading typographic pattern, not real section headings
+    "MD036": false
+  },
+  "ignores": ["node_modules", "README.md"]
+}

@@ -14,7 +14,7 @@ hideTitle: true
 With technological solutions that inspire. And an engaging collaboration that moves people. So that technology and people don't work against each other, but create something better together.
 {{< /lead >}}
 
-![](/images/unsere-marke/tk_4.jpg)
+![Tim&Koko team](/images/unsere-marke/tk_4.jpg)
 
 ## Brand Story
 
@@ -52,7 +52,7 @@ No matter where a company is on its journey to the cloud or what challenges it's
 
 ## Our Attitude
 
-![](/images/unsere-marke/tk_7.jpg)
+![Tim&Koko team](/images/unsere-marke/tk_7.jpg)
 
 ### Openness wins
 

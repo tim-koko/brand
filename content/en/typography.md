@@ -26,6 +26,7 @@ As an exception for Google applications, Poppins is used as the alternative type
 {{< fontspecimen label="Poppins Bold" font="Poppins" weight="700" >}}
 
 {{< section bg="dark" >}}
+
 ## Usage examples
 
 "Athletics" is tim&koko's house typeface and should be used across all applications. It is a sans-serif typeface with a consistent stroke weight. Longer strokes, asymmetric curves and tight apertures give it a distinctive and functional design.
