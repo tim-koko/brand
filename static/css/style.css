@@ -226,18 +226,30 @@ strong, b {
   justify-content: space-between;
 }
 
-.page-hero .kicker {
-  margin: 0;
+.kicker {
+  margin: 0 0 0.35rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.9rem;
   opacity: 0.6;
 }
 
+.page-hero .kicker {
+  margin: 0;
+}
+
 .page-hero h1 {
   margin: 0;
   font-size: clamp(2.75rem, 6.5vw, 4.75rem);
   line-height: 1.05;
+  font-weight: 800;
+}
+
+.intro-title {
+  margin: 0.5rem 0 1.5rem;
+  max-width: 40%;
+  font-size: clamp(4rem, 9.5vw, 7.5rem);
+  line-height: 1;
   font-weight: 800;
 }
 
@@ -711,11 +723,7 @@ strong, b {
 }
 
 .page-pagination .kicker {
-  margin: 0 0 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   font-size: 0.75rem;
-  opacity: 0.6;
 }
 
 .page-pagination a {
@@ -810,6 +818,10 @@ footer a {
 
   .page-body {
     grid-template-columns: 1fr;
+  }
+
+  .intro-title {
+    max-width: none;
   }
 
   .content-section {
