@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "hugo-extended": "0.155.3",
-    "markdownlint-cli2": "^0.22.1",
+    "markdownlint-cli2": "^0.23.2",
     "shx": "^0.4"
   }
 }
