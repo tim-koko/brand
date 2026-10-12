@@ -21,7 +21,7 @@
     "check": "hugo version"
   },
   "devDependencies": {
-    "hugo-extended": "0.164.0",
+    "hugo-extended": "0.167.0",
     "markdownlint-cli2": "^0.23.2",
     "shx": "^0.4"
   }
